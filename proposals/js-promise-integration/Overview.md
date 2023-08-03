@@ -2,7 +2,7 @@
 
 ## Summary
 
-The purpose of this proposal is to provide relatively efficient and relatively ergonimic interop between JavaScript promises and WebAssembly but working under the constraint that the only changes are to the JS API and not to core wasm.
+The purpose of this proposal is to provide relatively efficient and relatively ergonomic interop between JavaScript promises and WebAssembly but working under the constraint that the only changes are to the JS API and not to core wasm.
 
 The expectation is that the [Stack-Switching proposal](https://github.com/WebAssembly/stack-switching) will eventually extend core WebAssembly with the functionality to implement the operations we provide in this proposal directly within WebAssembly, along with many other valuable stack-switching operations, but that this particular use case for stack switching had sufficient urgency to merit a faster path via just the JS API.
 For more information, please refer to the notes and slides for the [June 28, 2021 Stack Subgroup Meeting](https://github.com/WebAssembly/meetings/blob/main/stack/2021/sg-6-28.md), which details the usage scenarios and factors we took into consideration and summarizes the rationale for how we arrived at the following design.
@@ -15,7 +15,7 @@ This proposal depends heavily on the [js-types](https://github.com/WebAssembly/j
 
 ## Interface
 
-The proposal is to extend the `WebAssembly.Function` object with a new class of attributes that reflect additional meta-level information about _how_ a particular function is to be used. Our focus will be on two particular attributes&mdash;`suspending` and `promising`&mdash;however, it is expected that other attribtes may follow&mdash;to support additional use cases not necessarily connected to this proposal.
+The proposal is to extend the `WebAssembly.Function` object with a new class of attributes that reflect additional meta-level information about _how_ a particular function is to be used. Our focus will be on two particular attributes&mdash;`suspending` and `promising`&mdash;however, it is expected that other attributes may follow&mdash;to support additional use cases not necessarily connected to this proposal.
 
 ```
 [Exposed=(Window,Worker,Worklet)]
